@@ -2,12 +2,12 @@ import java.util.ArrayList;
 
 public class GaragemCarros {
 
-    private Carros carro;
-    private ArrayList<Carros> garagem;
+    private Carro carro;
+    private ArrayList<Carro> garagem;
     private int tamanho;
 
     public GaragemCarros() {
-        garagem = new ArrayList<Carros>();
+        garagem = new ArrayList<Carro>();
     }
 
     public int tamanho() {
@@ -15,9 +15,8 @@ public class GaragemCarros {
         return tamanho;
     }
 
-    public void adicionar(Carros carro) {
+    public void adicionar(Carro carro) {
         this.carro = carro;
-
         for (int i = 0; i <= tamanho; i++) {
             if (garagem.contains(carro)) {
                 System.out.println("carro já presente na lista");
@@ -28,7 +27,7 @@ public class GaragemCarros {
         }
     }
 
-    public void remover(Carros carro) {
+    public void remover(Carro carro) {
         this.carro = carro;
         for (int i = 0; i <= tamanho; i++) {
             if (garagem.contains(carro)) {
@@ -40,10 +39,31 @@ public class GaragemCarros {
         }
     }
 
-    public void lista() {
-        for (Carros a : garagem) {
+    public Carro consultarCarro(String placa) {
+        if (!garagem.isEmpty()) {
+            for (int i = 0; i <= garagem.size(); i++) {
+                Carro carro = garagem.get(i);
+                if (carro.getPlaca().equals(placa)) {
+                    return carro;
+                } else {
+                    return null;
+                }
+            }
+            return null;
+        } else {
+            return null;
+        }
+    }
+
+    public void listaCarros() {
+        for (Carro a : garagem) {
             a.getInfo();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "GaragemCarros [carro=" + carro + ", garagem=" + garagem + ", tamanho=" + tamanho + "]";
     }
 
 }

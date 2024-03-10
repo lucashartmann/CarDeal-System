@@ -4,7 +4,7 @@ public class App {
 
     private static GaragemCarros garagemDoMarcao = new GaragemCarros();
     private static Vendedora marcaoCarros = new Vendedora(garagemDoMarcao);
-    private static Scanner sc;
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         App app = new App();
@@ -14,73 +14,132 @@ public class App {
     public void menu() {
         sc = new Scanner(System.in);
         System.out.println("\nDigite o número do procedimento");
-        System.out.println("1 -- Adicionar carros no sistema");
-        System.out.println("2 -- Remover carros do sistema");
-        System.out.println("3 -- Ver todos os carros do sistema");
-        System.out.println("4 -- Incluir venda");
-        System.out.println("5 -- Encerrar o programa \n");
+        System.out.println("1 -- Gerenciar carros");
+        System.out.println("2 -- Gerenciar clientes");
+        System.out.println("3 -- Incluir venda");
+        System.out.println("4 -- Encerrar o programa \n");
 
         int number = sc.nextInt();
         switch (number) {
             case 1:
-                adicionar();
+                gerenciarCarros();
                 break;
             case 2:
-                remover();
+                gerenciarClientes();
                 break;
             case 3:
-                lista();
-                break;
-            case 4:
                 venda();
                 break;
-            case 5:
+            case 4:
                 System.out.println("Programa encerrado");
                 System.exit(1);
                 break;
             default:
-                System.out.println("Caracter inválido");
+                System.out.println("Caracter inválido. Tente novamente");
                 break;
         }
         menu();
     }
 
-    public void adicionar() {
-        sc = new Scanner(System.in);
-        System.out.println("Digite a marca do carro deseja adicionar:");
-        String marca = sc.next();
-        System.out.println("Digite a placa do carro deseja adicionar:");
-        String placa = sc.next();
-        Carros carro = new Carros(placa, marca);
-        garagemDoMarcao.adicionar(carro);
+    public void gerenciarCarros() {
+        Carro carro;
+        String marca, placa;
+        int option;
+
+        System.out.println("\nDigite o número do procedimento: ");
+        System.out.println("1 -- Adicionar carro");
+        System.out.println("2 -- Remover carro");
+        System.out.println("3 -- Ver carros");
+        System.out.println("4 -- Sair do menu");
+        option = sc.nextInt();
+        switch (option) {
+            case 1:
+                System.out.println("Digite a marca do carro que deseja adicionar:");
+                marca = sc.next();
+                System.out.println("Digite a placa do carro que deseja adicionar:");
+                placa = sc.next();
+                carro = new Carro(placa, marca);
+                garagemDoMarcao.adicionar(carro);
+                System.out.println("Carro adicionado! " + carro.toString());
+                break;
+            case 2:
+                System.out.println("Digite a placa do carro que deseja remover:");
+                placa = sc.next();
+                carro = garagemDoMarcao.consultarCarro(placa);
+                garagemDoMarcao.remover(carro);
+                System.out.println("Carro removido!");
+                break;
+            case 3:
+                System.out.println("-- Lista de carros --");
+                garagemDoMarcao.listaCarros();
+                break;
+            case 4:
+                System.out.println("Você escolheu sair");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Numero inválido. Tente novamente");
+                break;
+        }
+
     }
 
-    public void remover() {
-        sc = new Scanner(System.in);
-        System.out.println("Digite a marca do carro que deseja remover:");
-        String marca = sc.next();
-        System.out.println("Digite a placa do carro deseja remover:");
-        String placa = sc.next();
-        Carros carro = new Carros(placa, marca);
-        garagemDoMarcao.remover(carro);
-    }
+    public void gerenciarClientes() {
+        Cliente cliente;
+        String nome;
+        int option;
 
-    public void lista() {
-       garagemDoMarcao.lista();
+        System.out.println("Digite o número do procedimento: ");
+        System.out.println("1 -- Adicionar cliente");
+        System.out.println("2 -- Remover cliente");
+        System.out.println("3 -- Ver clientes");
+        System.out.println("4 -- Sair do menu");
+        option = sc.nextInt();
+        switch (option) {
+            case 1:
+                System.out.println("Digite o nome do cliente que deseja adicionar:");
+                nome = sc.next();
+                cliente = new Cliente(nome);
+                marcaoCarros.adicionarCliente(cliente);
+                System.out.println("Cliente adicionado! " + cliente.toString());
+                break;
+            case 2:
+                System.out.println("Digite o nome do cliente que deseja remover:");
+                nome = sc.next();
+                cliente = marcaoCarros.consultarClientela(nome);
+                marcaoCarros.removerCliente(cliente);
+                System.out.println("Cliente removido");
+                break;
+            case 3:
+                System.out.println("-- Lista de Clientes --");
+                marcaoCarros.listaClientes();
+                break;
+            case 4:
+                System.out.println("Você escolheu sair");
+                System.exit(0);
+                break;
+            default:
+                break;
+        }
+
     }
 
     public void venda() {
-        sc = new Scanner(System.in);
+        String marca, placa, comprador;
+        double valor;
+        Carro carro;
+
         System.out.println("Digite a marca do carro que foi vendido:");
-        String marca = sc.next();
+        marca = sc.next();
         System.out.println("Digite a placa do carro foi vendido:");
-        String placa = sc.next();
+        placa = sc.next();
         System.out.println("Digite o valor pelo o qual o carro foi vendido:");
-        Double valor = sc.nextDouble();
+        valor = sc.nextDouble();
         System.out.println("Digite o nome do comprador:");
-        String comprador = sc.next();
-        Carros carro = new Carros(placa, marca);
+        comprador = sc.next();
+        carro = new Carro(placa, marca);
         marcaoCarros.vender(valor, comprador, carro);
         garagemDoMarcao.remover(carro);
-     }
+        System.out.println("Venda cadastrada");
+    }
 }
