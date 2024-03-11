@@ -50,7 +50,8 @@ public class App {
         System.out.println("1 -- Adicionar carro");
         System.out.println("2 -- Remover carro");
         System.out.println("3 -- Ver carros");
-        System.out.println("4 -- Sair do menu");
+        System.out.println("4 -- Ver quantidade de carros");
+        System.out.println("5 -- Sair do menu");
         option = sc.nextInt();
         switch (option) {
             case 1:
@@ -60,22 +61,21 @@ public class App {
                 placa = sc.next();
                 carro = new Carro(placa, marca);
                 garagemDoMarcao.adicionar(carro);
-                System.out.println("Carro adicionado! " + carro.toString());
+                System.out.println(carro.toString());
                 break;
             case 2:
                 System.out.println("Digite a placa do carro que deseja remover:");
                 placa = sc.next();
                 carro = garagemDoMarcao.consultarCarro(placa);
                 garagemDoMarcao.remover(carro);
-                System.out.println("Carro removido!");
                 break;
             case 3:
-                System.out.println("-- Lista de carros --");
                 garagemDoMarcao.listaCarros();
                 break;
             case 4:
-                System.out.println("Você escolheu sair");
-                System.exit(0);
+                garagemDoMarcao.getQuantidadeCarros();
+                break;
+            case 5:
                 break;
             default:
                 System.out.println("Numero inválido. Tente novamente");
@@ -93,7 +93,8 @@ public class App {
         System.out.println("1 -- Adicionar cliente");
         System.out.println("2 -- Remover cliente");
         System.out.println("3 -- Ver clientes");
-        System.out.println("4 -- Sair do menu");
+        System.out.println("4 -- Ver quantidade de clientes");
+        System.out.println("5 -- Sair do menu");
         option = sc.nextInt();
         switch (option) {
             case 1:
@@ -101,22 +102,21 @@ public class App {
                 nome = sc.next();
                 cliente = new Cliente(nome);
                 marcaoCarros.adicionarCliente(cliente);
-                System.out.println("Cliente adicionado! " + cliente.toString());
+                System.out.println(cliente.toString());
                 break;
             case 2:
                 System.out.println("Digite o nome do cliente que deseja remover:");
                 nome = sc.next();
                 cliente = marcaoCarros.consultarClientela(nome);
                 marcaoCarros.removerCliente(cliente);
-                System.out.println("Cliente removido");
                 break;
             case 3:
-                System.out.println("-- Lista de Clientes --");
                 marcaoCarros.listaClientes();
                 break;
             case 4:
-                System.out.println("Você escolheu sair");
-                System.exit(0);
+                marcaoCarros.getQuantidadeClientes();
+                break;
+            case 5:
                 break;
             default:
                 break;

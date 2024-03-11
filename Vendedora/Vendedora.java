@@ -9,6 +9,7 @@ public class Vendedora {
     private double saldo;
     private Cliente cliente;
     private ArrayList<Cliente> clientela;
+    private int quantidadeClientes;
 
     public Vendedora(GaragemCarros gc) {
         clientela = new ArrayList<>();
@@ -16,11 +17,25 @@ public class Vendedora {
     }
 
     public void adicionarCliente(Cliente cliente) {
-        clientela.add(cliente);
+        if (!clientela.contains(cliente)) {
+            clientela.add(cliente);
+            quantidadeClientes++;
+            System.out.println("Cliente adicionado");
+        } else {
+            System.out.println("Cliente já está na lista");
+        }
     }
 
     public void removerCliente(Cliente cliente) {
-        clientela.remove(cliente);
+        if(clientela.isEmpty()){
+            System.out.println("A lista está vazia");
+        }else if (!clientela.contains(cliente)) {
+            System.out.println("O cliente não está na lista");
+        }else {
+            clientela.remove(cliente);
+            quantidadeClientes--;
+            System.out.println("Cliente removido");
+        }
     }
 
     public Cliente consultarClientela(String nome) {
@@ -43,10 +58,15 @@ public class Vendedora {
         this.comprador = comprador;
     }
 
-    public void listaClientes() {
+    public void listaClientes() {  
+        System.out.println("-- Lista de clientes --");
         for (Cliente a : clientela) {
-            a.getInfo();
+            a.toString();
         }
+    }
+
+    public int getQuantidadeClientes() {
+        return quantidadeClientes;
     }
 
     @Override
@@ -54,7 +74,5 @@ public class Vendedora {
         return "Vendedora [gc=" + gc + ", valor=" + valor + ", comprador=" + comprador + ", carro=" + carro + ", saldo="
                 + saldo + ", cliente=" + cliente + ", clientela=" + clientela + "]";
     }
-
-    
 
 }

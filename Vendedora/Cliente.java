@@ -13,9 +13,6 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public void getInfo() {
-        System.out.print("[Nome: " + getNome() + "] \n");
-    }
 
     @Override
     public String toString() {

@@ -24,10 +24,6 @@ public class Carro {
         this.marca = marca;
     }
 
-    public void getInfo() {
-        System.out.print("[Marca: " + getMarca() + ", Placa: " + getPlaca() + "] \n");
-    }
-
     @Override
     public String toString() {
         return "Carro [placa=" + placa + ", marca=" + marca + "]";
