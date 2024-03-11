@@ -57,7 +57,7 @@ public class GaragemCarros {
     public void listaCarros() {
         System.out.println("-- Lista de carros --");
         for (Carro a : garagem) {
-            a.toString();
+            System.out.println(a.toString());
         }
     }
 

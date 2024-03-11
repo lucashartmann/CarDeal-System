@@ -61,7 +61,7 @@ public class Vendedora {
     public void listaClientes() {  
         System.out.println("-- Lista de clientes --");
         for (Cliente a : clientela) {
-            a.toString();
+            System.out.println(a.toString());
         }
     }
 

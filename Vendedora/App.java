@@ -89,7 +89,7 @@ public class App {
         String nome;
         int option;
 
-        System.out.println("Digite o número do procedimento: ");
+        System.out.println("\nDigite o número do procedimento: ");
         System.out.println("1 -- Adicionar cliente");
         System.out.println("2 -- Remover cliente");
         System.out.println("3 -- Ver clientes");
