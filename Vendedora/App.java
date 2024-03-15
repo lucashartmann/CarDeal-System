@@ -17,15 +17,15 @@ public class App {
         System.out.println("1 -- Gerenciar carros");
         System.out.println("2 -- Gerenciar clientes");
         System.out.println("3 -- Incluir venda");
-        System.out.println("4 -- Encerrar o programa \n");
+        System.out.println("4 -- Encerrar o programa");
 
         int number = sc.nextInt();
         switch (number) {
             case 1:
-                gerenciarCarros();
+                menuCarros();
                 break;
             case 2:
-                gerenciarClientes();
+                menuClientes();
                 break;
             case 3:
                 venda();
@@ -41,7 +41,7 @@ public class App {
         menu();
     }
 
-    public void gerenciarCarros() {
+    public void menuCarros() {
         Carro carro;
         String marca, placa;
         int option;
@@ -51,7 +51,7 @@ public class App {
         System.out.println("2 -- Remover carro");
         System.out.println("3 -- Ver carros");
         System.out.println("4 -- Ver quantidade de carros");
-        System.out.println("5 -- Sair do menu");
+        System.out.println("5 -- Sair do menu de carros");
         option = sc.nextInt();
         switch (option) {
             case 1:
@@ -81,10 +81,11 @@ public class App {
                 System.out.println("Numero inválido. Tente novamente");
                 break;
         }
+        menuCarros();
 
     }
 
-    public void gerenciarClientes() {
+    public void menuClientes() {
         Cliente cliente;
         String nome;
         int option;
@@ -94,7 +95,7 @@ public class App {
         System.out.println("2 -- Remover cliente");
         System.out.println("3 -- Ver clientes");
         System.out.println("4 -- Ver quantidade de clientes");
-        System.out.println("5 -- Sair do menu");
+        System.out.println("5 -- Sair do menu de clientes");
         option = sc.nextInt();
         switch (option) {
             case 1:
@@ -121,6 +122,7 @@ public class App {
             default:
                 break;
         }
+        menuClientes();
 
     }
 
