@@ -10,9 +10,9 @@ public class GerenciarTelas {
     }
 
     public void trocarTela(int trocaTela, Vendedora vendedora, GerenciarTelas gerenciarTelas) {
-        Menu menu = new Menu();
-        Cadastro_carro cadastro_carro = new Cadastro_carro();
-        Cadastro_cliente cadastro_cliente = new Cadastro_cliente();
+        TelaMenu menu = new TelaMenu();
+        TelaCadastroCarro cadastro_carro = new TelaCadastroCarro();
+        TelaCadastroCliente cadastro_cliente = new TelaCadastroCliente();
         menu.screen(vendedora, gerenciarTelas);
         switch (trocaTela) {
             case 0:
