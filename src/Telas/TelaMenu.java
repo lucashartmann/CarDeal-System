@@ -10,6 +10,7 @@ public class TelaMenu extends JDialog {
     private JButton cadastroCarroButton;
     private JButton cadastroClienteButton;
     private GerenciarTelas gerenciarTelas;
+    private JLabel titulo;
 
     public void screen(Vendedora vendedora) {
         setVisible(true);

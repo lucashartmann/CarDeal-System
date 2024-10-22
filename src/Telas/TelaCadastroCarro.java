@@ -9,11 +9,8 @@ import java.awt.event.*;
 
 public class TelaCadastroCarro extends JDialog {
     private JPanel contentPane;
-    private JTextField digiteAquiAMarcaTextField;
     private JButton voltarButton;
     private JButton cadastrarButton;
-    private JTextField digiteAquiAPlacaTextField;
-    private JTextField textField1;
     private JTextField campoPlaca;
     private JTextField campoResultado;
     private JTextField campoMarca;
