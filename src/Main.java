@@ -7,6 +7,6 @@ public class Main {
         GerenciarTelas gerenciarTelas = new GerenciarTelas();
         GaragemCarros garagemCarros = new GaragemCarros();
         Vendedora vendedora = new Vendedora(garagemCarros);
-        gerenciarTelas.executar(vendedora, gerenciarTelas);
+        gerenciarTelas.trocarTela(0, vendedora);
     }
 }

@@ -9,25 +9,27 @@ public class TelaMenu extends JDialog {
     private JPanel contentPane;
     private JButton cadastroCarroButton;
     private JButton cadastroClienteButton;
+    private GerenciarTelas gerenciarTelas;
 
-    public void screen(Vendedora vendedora, GerenciarTelas gerenciarTelas) {
+    public void screen(Vendedora vendedora) {
         setVisible(true);
         setContentPane(contentPane);
         setModal(true);
         setSize(700, 600); // Definindo o tamanho da tela
         setLocationRelativeTo(null); // Centralizando a tela
+        gerenciarTelas = new GerenciarTelas();
 
-        cadastroCarroButton.addActionListener(new ActionListener() {
+         cadastroCarroButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gerenciarTelas.setTrocaTela(1);
-                gerenciarTelas.trocarTela(1, vendedora, gerenciarTelas);
+                gerenciarTelas.trocarTela(1, vendedora);
+                dispose();
             }
         });
 
         cadastroClienteButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gerenciarTelas.setTrocaTela(2);
-                gerenciarTelas.trocarTela(2, vendedora, gerenciarTelas);
+                gerenciarTelas.trocarTela(2, vendedora);
+                dispose();
             }
         });
 

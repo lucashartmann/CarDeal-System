@@ -19,18 +19,20 @@ public class TelaCadastroCarro extends JDialog {
     private JTextField campoMarca;
     private JLabel placaTexto;
     private JLabel marcaTexto;
+    private GerenciarTelas gerenciarTelas;
 
-    public void screen(Vendedora vendedora, GerenciarTelas gerenciarTelas) {
+    public void screen(Vendedora vendedora) {
         setVisible(true);
         setContentPane(contentPane);
         setModal(true);
         setSize(700, 600); // Definindo o tamanho da tela
         setLocationRelativeTo(null);
+        gerenciarTelas = new GerenciarTelas();
 
         voltarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gerenciarTelas.setTrocaTela(0);
-                gerenciarTelas.trocarTela(0, vendedora, gerenciarTelas);
+                gerenciarTelas.trocarTela(0, vendedora);
+                dispose();
             }
         });
 
