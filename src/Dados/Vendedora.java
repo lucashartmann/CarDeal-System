@@ -18,13 +18,15 @@ public class Vendedora {
         garagem = gc;
     }
 
-    public void adicionarCliente(Cliente cliente) {
+    public boolean adicionarCliente(Cliente cliente) {
         if (!clientela.contains(cliente)) {
             clientela.add(cliente);
             quantidadeClientes++;
             System.out.println("Cliente adicionado");
+            return true;
         } else {
             System.out.println("Cliente já está na lista");
+            return false;
         }
     }
 
@@ -63,18 +65,17 @@ public class Vendedora {
         removerCliente(cliente);
     }
 
-    public void listaClientes() {
+    public String listaClientes() {
         System.out.println("-- Lista de clientes --");
         for (Cliente a : clientela) {
-            System.out.println(a.toString());
+           return (a.toString());
         }
+        return null;
     }
 
     public int getQuantidadeClientes() {
         return quantidadeClientes;
     }
-
-    
 
     public GaragemCarros getGaragem() {
         return garagem;

@@ -55,11 +55,12 @@ public class GaragemCarros {
         }
     }
 
-    public void listaCarros() {
+    public String listaCarros() {
         System.out.println("-- Lista de carros --");
         for (Carro a : garagem) {
-            System.out.println(a.toString());
+            return (a.toString());
         }
+        return null;
     }
 
     public int getQuantidadeCarros() {

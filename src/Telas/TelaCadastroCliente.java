@@ -4,28 +4,31 @@ import Dados.Cliente;
 import Dados.Vendedora;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class TelaCadastroCliente extends JDialog {
     private JPanel contentPane;
-    private JTextField campoCPF;
     private JFrame clienteJFrame;
-    private JButton voltarButton;
-    private JButton cadastrarButton;
+    private JTextField campoCPF;
     private JTextField campoNome;
     private JTextField campoResultado;
+    private JButton voltarButton;
+    private JButton cadastrarButton;
     private JLabel nome;
     private JLabel cpf;
-    private JTextField textField1;
     private GerenciarTelas gerenciarTelas;
+    private String nomeCliente;
+    private Cliente cliente;
 
     public void screen(Vendedora vendedora) {
         setVisible(true);
         setContentPane(contentPane);
         setModal(true);
-        setSize(700, 600); // Definindo o tamanho da tela
+        setSize(700, 600); //Tamanho da tela
         setLocationRelativeTo(null);
         gerenciarTelas = new GerenciarTelas();
+        //campoNome.setBackground(Color.darkGray);
 
         voltarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -33,18 +36,15 @@ public class TelaCadastroCliente extends JDialog {
                 dispose();
             }
         });
-
         cadastrarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String nomeCliente = campoNome.getName();
-                Cliente cliente = new Cliente(nomeCliente);
+                nomeCliente = campoNome.getName();
+                cliente = new Cliente(nomeCliente);
                 vendedora.adicionarCliente(cliente);
-                campoResultado.setText("Clientes cadastrados com sucesso!");
+                campoResultado.setText("Nome: " + nomeCliente);
+               //campoResultado.setText(vendedora.listaClientes());
             }
         });
-
-
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
-
 }

@@ -17,12 +17,16 @@ public class TelaCadastroCarro extends JDialog {
     private JLabel placaTexto;
     private JLabel marcaTexto;
     private GerenciarTelas gerenciarTelas;
+    private String placa;
+    private String marca;
+    private Carro carro;
+    private GaragemCarros garagemCarros;
 
     public void screen(Vendedora vendedora) {
         setVisible(true);
         setContentPane(contentPane);
         setModal(true);
-        setSize(700, 600); // Definindo o tamanho da tela
+        setSize(700, 600); //Tamanho da tela
         setLocationRelativeTo(null);
         gerenciarTelas = new GerenciarTelas();
 
@@ -35,12 +39,12 @@ public class TelaCadastroCarro extends JDialog {
 
         cadastrarButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String placa = campoPlaca.getName();
-                String marca = campoPlaca.getName();
-                Carro carro = new Carro(placa, marca);
-                GaragemCarros garagemCarros = vendedora.getGaragem();
+                placa = campoPlaca.getName();
+                marca = campoPlaca.getName();
+                carro = new Carro(placa, marca);
+                garagemCarros = vendedora.getGaragem();
                 garagemCarros.adicionar(carro);
-                campoResultado.setText("Carros cadastrados com sucesso!");
+                campoResultado.setText(garagemCarros.listaCarros());
             }
         });
 
