@@ -21,7 +21,7 @@
           <text value="Menu"/>
         </properties>
       </component>
-      <grid id="e3588" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e3588" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -31,18 +31,6 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="5723f" class="javax.swing.JButton" binding="cadastroClienteButton">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="100" height="100"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font name="Arial Black" size="16" style="1"/>
-              <horizontalTextPosition value="0"/>
-              <text value="Cadastro de clientes"/>
-            </properties>
-          </component>
           <component id="e7465" class="javax.swing.JButton" binding="cadastroCarroButton">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
@@ -64,6 +52,66 @@
               <rolloverEnabled value="true"/>
               <selected value="false"/>
               <text value="Cadastro de carros"/>
+              <verifyInputWhenFocusTarget value="true"/>
+            </properties>
+          </component>
+          <component id="1a576" class="javax.swing.JButton" binding="editClientsButton">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="100"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="Arial Black" size="16" style="1"/>
+              <horizontalTextPosition value="0"/>
+              <text value="Edição de clientes"/>
+            </properties>
+          </component>
+          <component id="5723f" class="javax.swing.JButton" binding="cadastroClienteButton">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="100"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="Arial Black" size="16" style="1"/>
+              <horizontalTextPosition value="0"/>
+              <text value="Cadastro de clientes"/>
+            </properties>
+          </component>
+          <component id="2ed28" class="javax.swing.JButton" binding="dealershipButton">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="100"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="Arial Black" size="16" style="1"/>
+              <horizontalTextPosition value="0"/>
+              <text value="Vendedora"/>
+            </properties>
+          </component>
+          <component id="3644b" class="javax.swing.JButton" binding="editCarsButton">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="100"/>
+              </grid>
+            </constraints>
+            <properties>
+              <borderPainted value="true"/>
+              <contentAreaFilled value="true"/>
+              <defaultCapable value="true"/>
+              <doubleBuffered value="false"/>
+              <enabled value="true"/>
+              <focusCycleRoot value="false"/>
+              <focusable value="true"/>
+              <font name="Arial Black" size="16" style="1"/>
+              <horizontalTextPosition value="0"/>
+              <opaque value="true"/>
+              <requestFocusEnabled value="true"/>
+              <rolloverEnabled value="true"/>
+              <selected value="false"/>
+              <text value="Edição de carros"/>
               <verifyInputWhenFocusTarget value="true"/>
             </properties>
           </component>

@@ -18,29 +18,34 @@ public class GaragemCarros {
         return tamanho;
     }
 
-    public void adicionar(Carro carro) {
+    public boolean adicionar(Carro carro) {
         if (garagem.contains(carro)) {
             System.out.println("carro já presente na lista");
+            return false;
         } else {
             garagem.add(carro);
             quantidadeCarros++;
             System.out.println("Carro adicionado");
+            return true;
         }
     }
 
-    public void remover(Carro carro) {
+    public boolean remover(Carro carro) {
         if (garagem.isEmpty()) {
             System.out.println("A garagem está vazia");
+            return false;
         } else if (!garagem.contains(carro)) {
             System.out.println("O carro não está cadastrado");
+            return false;
         } else {
             garagem.remove(carro);
             quantidadeCarros--;
             System.out.println("Carro removido");
+            return true;
         }
     }
 
-    public Carro consultarCarro(String placa) {
+    public Carro consultarCarroPorPlaca(String placa) {
         if (!garagem.isEmpty()) {
             for (Carro carro : garagem) {
                 if (carro.getPlaca().equals(placa)) {
@@ -51,16 +56,38 @@ public class GaragemCarros {
             }
             return null;
         } else {
+            System.out.println("A garagem está vazia");
+            return null;
+        }
+    }
+
+    public Carro consultarCarroPorPlacaMarca(String placa, String marca) {
+        if (!garagem.isEmpty()) {
+            for (Carro carro : garagem) {
+                if (carro.getPlaca().equals(placa) && carro.getMarca().equals(marca)) {
+                    return carro;
+                } else {
+                    return null;
+                }
+            }
+            return null;
+        } else {
+            System.out.println("A garagem está vazia");
             return null;
         }
     }
 
     public String listaCarros() {
-        System.out.println("-- Lista de carros --");
-        for (Carro a : garagem) {
-            return (a.toString());
+        if(!garagem.isEmpty()) {
+            System.out.println("-- Lista de carros --");
+            for (Carro a : garagem) {
+                return (a.toString());
+            }
+            return null;
+        }else {
+            System.out.println("A garagem está vazia");
+            return null;
         }
-        return null;
     }
 
     public int getQuantidadeCarros() {

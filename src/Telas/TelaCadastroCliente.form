@@ -93,6 +93,16 @@
               <foreground color="-16718582"/>
             </properties>
           </component>
+          <component id="8284b" class="javax.swing.JButton" binding="showClientsButton">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <enabled value="true"/>
+              <font size="16"/>
+              <text value="Mostrar Clientes"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <component id="3abbf" class="javax.swing.JLabel">

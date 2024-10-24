@@ -36,13 +36,22 @@ public class TelaEditarCarros extends JDialog {
                 placa = campoPlaca.getText();
                 marca = campoMarca.getText();
                 if (placa != null && marca != null) {
-                    Carro carro = garagemCarros.consultarCarro(placa);
-                    campoResultado.setText("Carro antes: ");
+                    Carro carro = garagemCarros.consultarCarroPorPlacaMarca(placa, marca);
+                    campoResultado.setText("Carro antes: " + carro.toString());
                     novaMarca = fieldNewMarca.getText();
                     novaPlaca = fieldNewPlaca.getText();
                     carro.setMarca(novaMarca);
                     carro.setPlaca(novaPlaca);
-                    campoResultado.setText("Carro antes: ");
+                    campoResultado.setText("Carro depois: " + carro.toString());
+                }
+                if (placa != null && marca == null) {
+                    Carro carro = garagemCarros.consultarCarroPorPlaca(placa);
+                    campoResultado.setText("Carro antes: " + carro.toString());
+                    novaMarca = fieldNewMarca.getText();
+                    novaPlaca = fieldNewPlaca.getText();
+                    carro.setMarca(novaMarca);
+                    carro.setPlaca(novaPlaca);
+                    campoResultado.setText("Carro depois: " + carro.toString());
                 }
             }
         });

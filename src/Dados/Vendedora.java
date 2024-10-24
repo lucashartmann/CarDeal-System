@@ -13,9 +13,9 @@ public class Vendedora {
     private ArrayList<Cliente> clientela;
     private int quantidadeClientes;
 
-    public Vendedora(GaragemCarros gc) {
+    public Vendedora(GaragemCarros garagem) {
         clientela = new ArrayList<>();
-        garagem = gc;
+        this.garagem = garagem;
     }
 
     public boolean adicionarCliente(Cliente cliente) {
@@ -30,28 +30,31 @@ public class Vendedora {
         }
     }
 
-    public void removerCliente(Cliente cliente) {
+    public boolean removerCliente(Cliente cliente) {
         if (clientela.isEmpty()) {
             System.out.println("A lista está vazia");
+            return false;
         } else if (!clientela.contains(cliente)) {
             System.out.println("O cliente não está na lista");
+            return false;
         } else {
             clientela.remove(cliente);
             quantidadeClientes--;
             System.out.println("Cliente removido");
+            return true;
         }
     }
 
     public Cliente consultarClientela(String nome) {
         if (!clientela.isEmpty()) {
-            for (int i = 0; i < clientela.size(); i++) {
-                Cliente cliente = clientela.get(i);
+            for (Cliente cliente : clientela) {
                 if (cliente.getNome().equals(nome)) {
                     return cliente;
                 }
             }
-            return cliente;
+            return null;
         } else {
+            System.out.println("A lista de clientes está vazia");
             return null;
         }
     }
@@ -66,11 +69,16 @@ public class Vendedora {
     }
 
     public String listaClientes() {
-        System.out.println("-- Lista de clientes --");
-        for (Cliente a : clientela) {
-           return (a.toString());
+        if(!(clientela.isEmpty())) {
+            System.out.println("-- Lista de clientes --");
+            for (Cliente a : clientela) {
+                return (a.toString());
+            }
+            return  null;
+        }else{
+            System.out.println("A lista de clientes está vazia");
+            return null;
         }
-        return null;
     }
 
     public int getQuantidadeClientes() {
@@ -78,7 +86,12 @@ public class Vendedora {
     }
 
     public GaragemCarros getGaragem() {
-        return garagem;
+        if(garagem != null) {
+            return garagem;
+        }else {
+            System.out.println("Não existe garagem");
+            return null;
+        }
     }
 
     @Override

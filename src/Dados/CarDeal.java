@@ -69,7 +69,7 @@ public class CarDeal {
             case 2:
                 System.out.println("Digite a placa do carro que deseja remover:");
                 placa = sc.next();
-                carro = garagemJohns.consultarCarro(placa);
+                carro = garagemJohns.consultarCarroPorPlaca(placa);
                 garagemJohns.remover(carro);
                 break;
             case 3:

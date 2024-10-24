@@ -11,6 +11,9 @@ public class TelaMenu extends JDialog {
     private JButton cadastroClienteButton;
     private GerenciarTelas gerenciarTelas;
     private JLabel titulo;
+    private JButton editCarsButton;
+    private JButton editClientsButton;
+    private JButton dealershipButton;
 
     public void screen(Vendedora vendedora) {
         setVisible(true);
@@ -26,15 +29,30 @@ public class TelaMenu extends JDialog {
                 dispose();
             }
         });
-
         cadastroClienteButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 gerenciarTelas.trocarTela(2, vendedora);
                 dispose();
             }
         });
-
-
+        editCarsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                gerenciarTelas.trocarTela(3, vendedora);
+                dispose();
+            }
+        });
+        editClientsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                gerenciarTelas.trocarTela(4, vendedora);
+                dispose();
+            }
+        });
+        dealershipButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                gerenciarTelas.trocarTela(5, vendedora);
+                dispose();
+            }
+        });
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
